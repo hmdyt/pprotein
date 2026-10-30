@@ -6,7 +6,7 @@ import (
 	"io"
 	"os/exec"
 
-	"github.com/kaz/pprotein/internal/collect"
+	"github.com/hmdyt/pprotein/internal/collect"
 )
 
 type (

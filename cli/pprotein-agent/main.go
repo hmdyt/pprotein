@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/kaz/pprotein/integration/standalone"
+	"github.com/hmdyt/pprotein/integration/standalone"
 )
 
 func main() {

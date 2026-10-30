@@ -21,7 +21,7 @@ RUN go build ./cli/pprotein-mock
 FROM alpine/git AS repo
 
 WORKDIR /opt
-RUN git clone https://github.com/kaz/pprotein.git
+RUN git clone https://github.com/hmdyt/pprotein.git
 
 # --------------------------------------------------
 
