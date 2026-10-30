@@ -1,0 +1,58 @@
+{
+  "title": "slowlog of g1",
+  "group_id": "g1",
+  "sections": [
+    {
+      "title": "slowlog",
+      "label": "db",
+      "status": "ok",
+      "totals": {
+        "queries": 5380,
+        "total_time_s": 151.6,
+        "distinct_queries": 3,
+        "scan_suspects": 1
+      },
+      "tables": [
+        {
+          "title": "Queries by total time",
+          "note": "rows_examined / rows_sent are per-query averages. \"scan?\" marks queries that examine \u003e=100 rows and \u003e=10x the rows they return (likely missing index).",
+          "rows": [
+            {
+              "avg": 0.03,
+              "count": 5000,
+              "flag": "scan?",
+              "max": 0.1,
+              "query": "SELECT `status` FROM `ride_statuses` WHE…",
+              "rows_examined": 4500,
+              "rows_sent": 1,
+              "share": 0.9894,
+              "sum": 150
+            },
+            {
+              "avg": 0.004,
+              "count": 300,
+              "flag": "",
+              "max": 0.02,
+              "query": "INSERT INTO `chair_locations` (`id`, `ch…",
+              "rows_examined": 0,
+              "rows_sent": 0,
+              "share": 0.0079,
+              "sum": 1.2
+            },
+            {
+              "avg": 0.005,
+              "count": 80,
+              "flag": "",
+              "max": 0.01,
+              "query": "SELECT * FROM `chairs` WHERE `owner_id` …",
+              "rows_examined": 7.5,
+              "rows_sent": 7.5,
+              "share": 0.0026,
+              "sum": 0.4
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

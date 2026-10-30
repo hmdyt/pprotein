@@ -1,0 +1,92 @@
+{
+  "title": "httplog diff g1 -\u003e g2",
+  "sections": [
+    {
+      "title": "httplog",
+      "label": "app",
+      "status": "ok",
+      "totals": {
+        "requests": {
+          "before": 155,
+          "after": 190,
+          "delta": 35
+        },
+        "total_time_s": {
+          "before": 60,
+          "after": 26,
+          "delta": -34
+        },
+        "endpoints": {
+          "before": 3,
+          "after": 3,
+          "delta": 0
+        },
+        "error_rate_4xx_5xx": {
+          "before": 0.0194,
+          "after": 0,
+          "delta": -0.0194
+        },
+        "rate_5xx": {
+          "before": 0.0065,
+          "after": 0,
+          "delta": -0.0065
+        }
+      },
+      "tables": [
+        {
+          "title": "endpoints by total time: changed (largest absolute change first)",
+          "rows": [
+            {
+              "after": 12,
+              "before": 40,
+              "change": -0.7,
+              "count_after": 120,
+              "count_before": 100,
+              "delta": -28,
+              "method": "GET",
+              "share_after": 0.4615,
+              "share_before": 0.6667,
+              "uri": "/api/app/notification"
+            },
+            {
+              "after": 11,
+              "before": 10,
+              "change": 0.1,
+              "count_after": 60,
+              "count_before": 50,
+              "delta": 1,
+              "method": "POST",
+              "share_after": 0.4231,
+              "share_before": 0.1667,
+              "uri": "/api/chair/coordinate"
+            }
+          ]
+        },
+        {
+          "title": "endpoints by total time: new (only after)",
+          "rows": [
+            {
+              "after": 3,
+              "count_after": 10,
+              "method": "GET",
+              "share_after": 0.1154,
+              "uri": "/api/app/nearby-chairs"
+            }
+          ]
+        },
+        {
+          "title": "endpoints by total time: gone (only before)",
+          "rows": [
+            {
+              "before": 10,
+              "count_before": 5,
+              "method": "GET",
+              "share_before": 0.1667,
+              "uri": "/api/owner/chairs"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

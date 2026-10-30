@@ -1,0 +1,55 @@
+{
+  "title": "httplog of g1",
+  "group_id": "g1",
+  "sections": [
+    {
+      "title": "httplog",
+      "label": "app",
+      "status": "ok",
+      "totals": {
+        "requests": 155,
+        "total_time_s": 60,
+        "endpoints": 3,
+        "error_rate_4xx_5xx": 0.0194,
+        "rate_5xx": 0.0065
+      },
+      "tables": [
+        {
+          "title": "Endpoints by total response time",
+          "rows": [
+            {
+              "2xx": 98,
+              "4xx": 2,
+              "5xx": 0,
+              "avg": 0.4,
+              "count": 100,
+              "max": 1,
+              "method": "GET",
+              "p99": 0.9,
+              "share": 0.6667,
+              "sum": 40,
+              "uri": "/api/app/notification"
+            },
+            {
+              "2xx": 4,
+              "4xx": 0,
+              "5xx": 1,
+              "avg": 2,
+              "count": 5,
+              "max": 3,
+              "method": "GET",
+              "p99": 3,
+              "share": 0.1667,
+              "sum": 10,
+              "uri": "/api/owner/chairs"
+            }
+          ],
+          "omitted": {
+            "rows": 1,
+            "share": 0.1667
+          }
+        }
+      ]
+    }
+  ]
+}

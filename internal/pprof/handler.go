@@ -100,3 +100,8 @@ func (h *handler) getLatestData(c echo.Context) error {
 	}
 	return echo.NewHTTPError(http.StatusNotFound)
 }
+
+// Collector returns the collector initialized by Register.
+func (h *handler) Collector() *collect.Collector {
+	return h.collector
+}

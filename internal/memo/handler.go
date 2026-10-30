@@ -112,3 +112,8 @@ func (h *handler) getId(c echo.Context) error {
 
 	return c.Stream(http.StatusOK, "application/json", r)
 }
+
+// Collector returns the collector initialized by Register.
+func (h *handler) Collector() *collect.Collector {
+	return h.collector
+}

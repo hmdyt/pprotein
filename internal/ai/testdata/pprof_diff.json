@@ -1,0 +1,91 @@
+{
+  "title": "pprof diff g1 -\u003e g2",
+  "sections": [
+    {
+      "title": "pprof",
+      "status": "ok",
+      "tables": [
+        {
+          "title": "flat (all functions): changed (largest absolute change first)",
+          "rows": [
+            {
+              "after": 3,
+              "before": 6,
+              "change": -0.5,
+              "delta": -3,
+              "function": "syscall.Syscall",
+              "share_after": 0.6667,
+              "share_before": 0.75
+            },
+            {
+              "after": 1,
+              "before": 1,
+              "change": 0,
+              "delta": 0,
+              "function": "runtime.gcBgMarkWorker",
+              "share_after": 0.2222,
+              "share_before": 0.125
+            }
+          ]
+        },
+        {
+          "title": "flat (all functions): new (only after)",
+          "rows": [
+            {
+              "after": 0.5,
+              "function": "main.cacheLookup",
+              "share_after": 0.1111
+            }
+          ]
+        },
+        {
+          "title": "flat (all functions): gone (only before)",
+          "rows": [
+            {
+              "before": 1,
+              "function": "encoding/json.Marshal",
+              "share_before": 0.125
+            }
+          ]
+        },
+        {
+          "title": "cum (app code): changed (largest absolute change first)",
+          "rows": [
+            {
+              "after": 1.5,
+              "before": 5,
+              "change": -0.7,
+              "delta": -3.5,
+              "function": "main.getRides",
+              "share_after": 0.3333,
+              "share_before": 0.625
+            },
+            {
+              "after": 2,
+              "before": 2,
+              "change": 0,
+              "delta": 0,
+              "function": "main.postCoordinate",
+              "share_after": 0.4444,
+              "share_before": 0.25
+            }
+          ]
+        },
+        {
+          "title": "cum (app code): new (only after)",
+          "rows": [
+            {
+              "after": 0.5,
+              "function": "main.cacheLookup",
+              "share_after": 0.1111
+            }
+          ]
+        },
+        {
+          "title": "cum (app code): gone (only before)",
+          "rows": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "title": "pprof of g1",
+  "group_id": "g1",
+  "sections": [
+    {
+      "title": "pprof",
+      "label": "app",
+      "status": "ok",
+      "totals": {
+        "total_cpu_s": 8,
+        "duration_s": 10,
+        "cores_assumed": 2,
+        "cpu_utilization": 0.4
+      },
+      "tables": [
+        {
+          "title": "Top functions by flat (time in the function itself)",
+          "rows": [
+            {
+              "cum": 6,
+              "cum_share": 0.75,
+              "flat": 6,
+              "flat_share": 0.75,
+              "function": "syscall.Syscall",
+              "location": "app/syscall.Syscall.go:10"
+            },
+            {
+              "cum": 1,
+              "cum_share": 0.125,
+              "flat": 1,
+              "flat_share": 0.125,
+              "function": "encoding/json.Marshal",
+              "location": "encoding/json.Marshal.go:10"
+            },
+            {
+              "cum": 1,
+              "cum_share": 0.125,
+              "flat": 1,
+              "flat_share": 0.125,
+              "function": "runtime.gcBgMarkWorker",
+              "location": "app/runtime.gcBgMarkWorker.go:10"
+            }
+          ],
+          "omitted": {
+            "rows": 5,
+            "share": 0
+          }
+        },
+        {
+          "title": "Top functions by cum (including callees)",
+          "note": "cum shares overlap and do not add up to 100%.",
+          "rows": [
+            {
+              "cum": 7,
+              "cum_share": 0.875,
+              "flat": 0,
+              "flat_share": 0,
+              "function": "net/http.serve",
+              "location": "net/http.serve.go:10"
+            },
+            {
+              "cum": 6,
+              "cum_share": 0.75,
+              "flat": 6,
+              "flat_share": 0.75,
+              "function": "syscall.Syscall",
+              "location": "app/syscall.Syscall.go:10"
+            },
+            {
+              "cum": 5,
+              "cum_share": 0.625,
+              "flat": 0,
+              "flat_share": 0,
+              "function": "main.getRides",
+              "location": "app/main.getRides.go:10"
+            }
+          ],
+          "omitted": {
+            "rows": 5
+          }
+        },
+        {
+          "title": "App code (package main) by cum",
+          "note": "Where the application's own handlers and helpers spend time, including the DB and libraries they call.",
+          "rows": [
+            {
+              "cum": 5,
+              "cum_share": 0.625,
+              "flat": 0,
+              "flat_share": 0,
+              "function": "main.getRides",
+              "location": "app/main.getRides.go:10"
+            },
+            {
+              "cum": 2,
+              "cum_share": 0.25,
+              "flat": 0,
+              "flat_share": 0,
+              "function": "main.postCoordinate",
+              "location": "app/main.postCoordinate.go:10"
+            }
+          ]
+        },
+        {
+          "title": "Focus: callers",
+          "note": "Functions matching \"getRides\": main.getRides. Values are time of samples passing through them.",
+          "rows": [
+            {
+              "function": "net/http.serve",
+              "share": 1,
+              "value": 5
+            }
+          ]
+        },
+        {
+          "title": "Focus: callees",
+          "note": "Functions matching \"getRides\": main.getRides. Values are time of samples passing through them.",
+          "rows": [
+            {
+              "function": "database/sql.Query",
+              "share": 0.8,
+              "value": 4
+            },
+            {
+              "function": "encoding/json.Marshal",
+              "share": 0.2,
+              "value": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/hmdyt/pprotein/integration/echov4"
+	"github.com/hmdyt/pprotein/internal/ai"
 	"github.com/hmdyt/pprotein/internal/collect"
 	"github.com/hmdyt/pprotein/internal/collect/group"
 	"github.com/hmdyt/pprotein/internal/event"
@@ -53,7 +54,8 @@ func start() error {
 		Store:    store,
 		EventHub: hub,
 	}
-	if err := pprof.NewHandler(pprofOpts).Register(api.Group("/pprof")); err != nil {
+	pprofHandler := pprof.NewHandler(pprofOpts)
+	if err := pprofHandler.Register(api.Group("/pprof")); err != nil {
 		return err
 	}
 
@@ -91,9 +93,17 @@ func start() error {
 		Store:    store,
 		EventHub: hub,
 	}
-	if err := memo.NewHandler(memoOpts).Register(api.Group("/memo")); err != nil {
+	memoHandler := memo.NewHandler(memoOpts)
+	if err := memoHandler.Register(api.Group("/memo")); err != nil {
 		return err
 	}
+
+	ai.Register(e.Group("/ai"), ai.Sources{
+		PProf:   pprofHandler.Collector(),
+		HTTPLog: alpHandler.Collector(),
+		SlowLog: slpHandler.Collector(),
+		Memo:    memoHandler.Collector(),
+	})
 
 	grp, err := group.NewCollector(store, port)
 	if err != nil {
