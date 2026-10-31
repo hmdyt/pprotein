@@ -40,7 +40,7 @@ func NewHandler(opts *collect.Options, store storage.Storage) (*handler, error) 
 func (h *handler) Register(g *echo.Group) error {
 	h.config.RegisterHandlers(g.Group("/config"))
 
-	inner := extproc.NewHandler(&processor{confPath: h.config.GetPath()}, h.opts)
+	inner := extproc.NewHandler(newProcessor(h.config.GetPath()), h.opts)
 	if err := inner.Register(g); err != nil {
 		return fmt.Errorf("failed to register extproc handlers: %w", err)
 	}

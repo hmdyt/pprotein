@@ -323,7 +323,7 @@ func viewNote(typ string) string {
 	case "httplog":
 		return "nginx access log aggregated by alp (method + URI), sorted by total response time."
 	case "slowlog":
-		return "MySQL slow query log aggregated by slp (normalized queries), sorted by total time. Queries are cut to 300 chars; add ?full=1 for full text."
+		return "Slow query log (MySQL or PostgreSQL) aggregated by slp (normalized queries), sorted by total time. Queries are cut to 300 chars; add ?full=1 for full text."
 	}
 	return ""
 }

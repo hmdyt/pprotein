@@ -1,4 +1,4 @@
 bundle_values: true
 bundle_where_in: true
-filters: Query matches "^(SELECT|INSERT|UPDATE|REPLACE) "
+filters: Query matches "^(SELECT|INSERT|UPDATE|REPLACE|DELETE) "
 limit: 65536
